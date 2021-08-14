@@ -40,6 +40,8 @@ const swiper = new Swiper('.swiper-container', {
 
 /* SCROLLREVEAL - MOSTRAR ELEMENTOS QUANDO DER SCROLL NA PÁGINA*/
 
+  /*funções são escritas com letra maiúscula - ScrollReveal Swiper*/
+
 const scrollReveal = ScrollReveal({
   origin: 'top',
   distance: '30px',
@@ -52,4 +54,20 @@ scrollReveal.reveal(
   #about .image, #about .text,
   #services header, #services .card,
   #testimonials header, #testimonials .testimonials
-  #contact .text, #contact .links`, {interval :100})
+  #contact .text, #contact .links,
+  footer .brand, footer .social
+  `, 
+  {interval :100})
+
+/*botão voltar para o topo*/
+/*constantes são escritas em camelcase*/
+
+const backToTopButton = document.querySelector('.back-to-top')
+window.addEventListener('scroll', function(){
+  if (window.scrollY >= 560) {
+    backToTopButton.classList.add('show')
+  }else {
+    backToTopButton.classList.remove('show')
+  }
+})
+
