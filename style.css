@@ -35,6 +35,9 @@ img {
 
   /* FONTS */
   --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+
+  --title-font: 'Popins', sans-serif;
 }
 
 /* ======== BASE ======== */
@@ -95,11 +98,15 @@ body {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: calc(5rem +var(--header-height))0;
 }
 
 .section .title {
   margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
 }
 
 .section header {
@@ -127,9 +134,6 @@ body {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
 }
 
-main {
-  margin-top: calc(var(--header-height) + 2rem);
-}
 
 /* ======== LOGO ======== */
 
@@ -461,6 +465,10 @@ footer{
   background: #fca723;
 }
 
+footer.section {
+  padding: 4rem 0;
+}
+
 footer .logo-alt {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -521,19 +529,129 @@ footer .social a:hover {
 }
 
 /* ======== RESPONSIVO ======== */
-/* ======== MEDIA QUERIES ======== */
+/* MEDIA QUERIES - Adidiona pontos de quebras (break points) */
+
 /* extra large devices : 1200 > */
-/* large devices: 1023 > */
-/* large devices: 992 >*/
+@media (min-width: 1200px ) {
+  /*classes reutilizáveis*/
+  .container{
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header{
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  /*navigation*/
+
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul{
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a .title{
+    font: 400 1rem 'DM Sans' sans-serif;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+
+  main {
+    margin-top: var(--header-height);
+  }
+}
+
+/* large devices: 1023 > 
+ large devices: 992 > */
 
 
 @media (min-width: 992px) {
-  .title{
+  .root {
     --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
   }
 }
 
 /* medium devices: 767 > */
 
+/* home */
 
+#home .container {
+  grid-auto-flow: column ;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+#home .image {
+  order:1;
+}
+
+#home .text{
+  order: 0;
+  text-align: left;
+}
+
+/* ABOUT */
+
+#about .container {
+  margin: 0 auto;
+  grid-auto-flow: column;
+}
+
+/* SERVICES */
+
+.cards {
+  grid-template-columns: 1fr 1fr 1fr ; /*fr - frações flexíveis */
+
+}
+
+.card {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+/* CONTACT */
+
+#contact .container {
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+#contact .text {
+  max-width: 25rem;
+}
+
+/* FOOTER */
+
+footer.section {
+  padding: 3.75rem 0;
+}
+
+footer .container{
+  /*grid-auto-flow: column;*/
+  align-items: center;
+  justify-content: space-between;
+}
 
